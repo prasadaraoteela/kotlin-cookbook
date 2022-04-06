@@ -1226,10 +1226,10 @@ val testOrder = testCustomer.orders.first()
 val testProduct = testOrder.products.first()
 
 fun main() {
-  println(generateTestCustomerData())
+  println(generateTestCustomerData().testDataListJoiner())
 }
 
-private fun generateTestCustomerData(maxCustomers: Int = 10): List<Customer> {
+private fun generateTestCustomerData(maxCustomers: Int = 2): List<Customer> {
   val customers = ArrayList<Customer>()
   repeat(maxCustomers) {
     customers.add(
@@ -1248,7 +1248,7 @@ private fun generateTestOrderData(maxCount: Int): List<Order> {
   repeat(maxCount) {
     orders.add(
       Order(
-        products = generateTestProductsData(Random.nextInt(5..20)),
+        products = generateTestProductsData(Random.nextInt(1..5)),
         isDelivered = listOf(true, false).random()
       )
     )

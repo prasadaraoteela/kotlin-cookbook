@@ -8,3 +8,7 @@ fun Customer.getOrderedProductsSequence(): Sequence<Product> {
 }
 
 fun Customer.getOrderedProducts(): List<Product> = this.orders.flatMap(Order::products)
+
+fun <E> List<E>.testDataListJoiner(): String {
+  return joinToString(separator = ",", prefix = "listOf(", postfix = ")")
+}

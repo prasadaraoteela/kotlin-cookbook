@@ -10,7 +10,7 @@ data class Customer(val name: String, val city: City, val orders: List<Order>) {
     Customer(
         name = "$name",
         city = $city,
-        orders = listOf($orders)
+        orders = ${orders.testDataListJoiner()}
       )
   """.trimIndent()
 }
@@ -18,7 +18,7 @@ data class Customer(val name: String, val city: City, val orders: List<Order>) {
 data class Order(val products: List<Product>, val isDelivered: Boolean) {
   override fun toString(): String {
     return """
-      Order(products = listOf($products), isDelivered = $isDelivered)
+      Order(products = ${products.testDataListJoiner()}, isDelivered = $isDelivered)
     """.trimIndent()
   }
 }
